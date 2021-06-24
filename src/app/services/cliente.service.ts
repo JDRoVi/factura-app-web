@@ -9,14 +9,14 @@ import { Cliente } from '../models/cliente';
     constructor(public _http: HttpClient) {
         this.url = global.urlApi;
     }
-    register(user: Cliente): Observable<any> {
-        let data = JSON.stringify(user);
+    register(client: Cliente): Observable<any> {
+        let data = JSON.stringify(client);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.post(this.url + 'client', params, { headers: httpHeaders });
     }
     getClients(): Observable<any> {
-        let httpHeader = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
+        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.get(this._http + 'client', { headers: httpHeader });
     }
     getClient(id: string): Observable<any> {

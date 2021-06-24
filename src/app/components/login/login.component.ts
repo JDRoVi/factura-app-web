@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (response.status != "error") {
           this.token = response;
           localStorage.setItem("token", this.token);
-          //this._usuarioService.getToken();
+          this._usuarioService.getToken();
           this._usuarioService.loadIdentity().subscribe(
             response => {
               this.identity = JSON.stringify(response);

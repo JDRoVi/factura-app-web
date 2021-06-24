@@ -13,7 +13,6 @@ import { VentaComponent } from './components/venta/venta.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { ListaEmpleadosComponent } from './components/lista-empleados/lista-empleados.component';
 import { ListaProveedoresComponent } from './components/lista-proveedores/lista-proveedores.component';
-import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import { ListaClientesComponent } from './components/lista-clientes/lista-clientes.component';
 import { HistorialComprasComponent } from './components/historial-compras/historial-compras.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
@@ -42,7 +41,6 @@ const appRoutes: Routes = [
     { path: 'lista-usuarios', component: ListaUsuariosComponent },
     { path: 'lista-empleados', component: ListaEmpleadosComponent },
     { path: 'lista-proveedores', component: ListaProveedoresComponent },
-    { path: 'lista-productos', component: ListaProductosComponent },
     { path: 'lista-clientes', component: ListaClientesComponent },
     { path: 'historial-compras', component: HistorialComprasComponent },
     { path: 'editar-usuario', component: EditarUsuarioComponent },

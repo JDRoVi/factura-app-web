@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { global } from '../../services/configuration';
-import { VentaService } from '../../services/venta.service';
-import { Venta } from '../../models/venta';
+import { Producto } from '../../models/producto';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [VentaService]
+  providers: [ProductoService]
 })
 export class HomeComponent implements OnInit {
-  public ventas: Array<Venta>
+  public productos: Array<Producto>
   public url: string;
-  constructor(private _ventaService: VentaService) {
-    this.ventas = [];
+
+  constructor(private _productService: ProductoService) {
+    this.productos = [];
     this.url = global.urlApi;
   }
 
@@ -22,14 +23,12 @@ export class HomeComponent implements OnInit {
   }
 
   loadElements() {
-    this.getSells();
+    this.getProducts();
   }
 
-  getSells() {
-    this._ventaService.getSells().subscribe(
-      response => {
-        if (response.code == 200) { } else { }
-      }, error => { }
-    );
+  getProducts() {
+    this._productService.getProducts().subscribe(
+      response => { }, error => { }
+    )
   }
 }

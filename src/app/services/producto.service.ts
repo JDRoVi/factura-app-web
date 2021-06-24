@@ -15,4 +15,11 @@ import { Producto } from '../models/producto';
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.post(this.url + 'product', params, { headers: httpHeaders });
     }
+    getProducts(): Observable<any> {
+        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
+        return this._http.get(this._http + 'product', { headers: httpHeader });
+    }
+    getProduct(id: string): Observable<any> {
+        return this._http.get(this.url + 'product/' + id)
+    }
 }

@@ -43,11 +43,11 @@ import { Usuario } from '../models/usuario';
         return this.identity;
     }
     public loadIdentity() {
-        let httpHeaders = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('token', this.token);
-        return this._http.get(this.url + 'user/getidentity', { headers: httpHeaders });
+        let httpHeaders = new HttpHeaders().append('Content-Type', 'application/x-www-form-urlencoded').append('token', this.token);
+        return this._http.post(this.url + 'user/getidentity', null, { headers: httpHeaders });
     }
     getUsers(): Observable<any> {
-        let httpHeader = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
+        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.get(this._http + 'user', { headers: httpHeader });
     }
     getUser(id: string): Observable<any> {

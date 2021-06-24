@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { FroalaEditorDirective, FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { routing, appRoutingProviders } from './app.routing';
 
@@ -19,7 +20,6 @@ import { HistorialComprasComponent } from './components/historial-compras/histor
 import { ListaEmpleadosComponent } from './components/lista-empleados/lista-empleados.component';
 import { ListaClientesComponent } from './components/lista-clientes/lista-clientes.component';
 import { ListaProveedoresComponent } from './components/lista-proveedores/lista-proveedores.component';
-import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { EditarEmpleadoComponent } from './components/editar-empleado/editar-empleado.component';
@@ -32,6 +32,7 @@ import { DetalleProveedorComponent } from './components/detalle-proveedor/detall
 import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 import { FacturaVentaComponent } from './components/factura-venta/factura-venta.component';
 import { FacturaCompraComponent } from './components/factura-compra/factura-compra.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,6 @@ import { FacturaCompraComponent } from './components/factura-compra/factura-comp
     ListaEmpleadosComponent,
     ListaClientesComponent,
     ListaProveedoresComponent,
-    ListaProductosComponent,
     ListaUsuariosComponent,
     EditarUsuarioComponent,
     EditarEmpleadoComponent,
@@ -61,13 +61,16 @@ import { FacturaCompraComponent } from './components/factura-compra/factura-comp
     DetalleProveedorComponent,
     DetalleProductoComponent,
     FacturaVentaComponent,
-    FacturaCompraComponent
+    FacturaCompraComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot()
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

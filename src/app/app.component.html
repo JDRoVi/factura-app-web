@@ -16,10 +16,43 @@
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Categorias<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down" *ngIf=""></i></button>
             <div class="subnav-content">
-              <span *ngFor="let cat of ">
-                <a [routerLink]="['/inicio/'+cat.id]">{{cat.name}}</a>
+              <span *ngFor="let pursh of compra">
+                <a [routerLink]="['/inicio/'+pursh.id]">{{pursh.id}}</a>
+              </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div class="subnav">
+            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <div class="subnav-content">
+              <span *ngFor="let detp of detallecompra">
+                <a [routerLink]="['/inicio/'+detp.id]">{{detp.id}}</a>
+              </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div class="subnav">
+            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <div class="subnav-content">
+              <span *ngFor="let sell of venta">
+                <a [routerLink]="['/inicio/'+sell.id]">{{sell.name}}</a>
+              </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div class="subnav">
+            <button class="subnavbtn">Facturas<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <div class="subnav-content">
+              <span *ngFor="let dets of detalleventa">
+                <a [routerLink]="['/inicio/'+dets.id]">{{dets.id}}</a>
               </span>
             </div>
           </div>

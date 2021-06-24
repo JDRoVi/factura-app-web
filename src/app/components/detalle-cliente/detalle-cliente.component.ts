@@ -10,7 +10,7 @@ import { Params, Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalle-cliente.component.css'],
   providers: [ClienteService]
 })
-export class EditarClienteComponent implements OnInit {
+export class DetalleClienteComponent implements OnInit {
   public client: Cliente;
   public url: string;
 

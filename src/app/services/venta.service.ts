@@ -16,7 +16,7 @@ import { Venta } from '../models/venta';
         return this._http.post(this.url + 'sell', params, { headers: httpHeaders });
     }
     getSells(): Observable<any> {
-        let httpHeader = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
+        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.get(this._http + 'sell', { headers: httpHeader });
     }
 }
