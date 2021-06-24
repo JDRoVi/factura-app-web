@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand">Sistema de facturacion</a>
+    <h3 class="navbar-brand">Sistema de facturacion</h3>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav mr-auto">
+
         <li class="nav-item active">
           <a id="navHome" class="nav-link" [routerLink]="['']">Inicio</a>
         </li>
@@ -19,7 +20,7 @@
             <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down" *ngIf=""></i></button>
             <div class="subnav-content">
               <span *ngFor="let pursh of compra">
-                <a [routerLink]="['/inicio/'+pursh.id]">{{pursh.id}}</a>
+                <a [routerLink]="['/compra-productos/'+pursh.id]">{{pursh.id}}</a>
               </span>
             </div>
           </div>
@@ -30,7 +31,7 @@
             <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down" *ngIf=""></i></button>
             <div class="subnav-content">
               <span *ngFor="let detp of detallecompra">
-                <a [routerLink]="['/inicio/'+detp.id]">{{detp.id}}</a>
+                <a [routerLink]="['/historial-compras/'+detp.id]">{{detp.id}}</a>
               </span>
             </div>
           </div>
@@ -41,22 +42,23 @@
             <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down" *ngIf=""></i></button>
             <div class="subnav-content">
               <span *ngFor="let sell of venta">
-                <a [routerLink]="['/inicio/'+sell.id]">{{sell.name}}</a>
+                <a [routerLink]="['/checkout/'+sell.id]">{{sell.name}}</a>
               </span>
             </div>
           </div>
         </li>
-
+      
         <li class="nav-item">
           <div class="subnav">
             <button class="subnavbtn">Facturas<i class="fa fa-caret-down" *ngIf=""></i></button>
             <div class="subnav-content">
               <span *ngFor="let dets of detalleventa">
-                <a [routerLink]="['/inicio/'+dets.id]">{{dets.id}}</a>
+                <a [routerLink]="['/factura-compra//'+dets.id]">{{dets.id}}</a>
               </span>
             </div>
           </div>
         </li>
+
       </ul>
 
       <ul class="navbar-nav navbar-right" *ngIf="">

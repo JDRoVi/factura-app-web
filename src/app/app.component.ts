@@ -9,7 +9,14 @@ import { global } from './services/configuration';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [
+    UsuarioService,
+    VentaService,
+    CompraService,
+    DetalleCompraService,
+    DetalleVentaService
+  ]
 })
 export class AppComponent {
   public identity: any;
@@ -18,6 +25,7 @@ export class AppComponent {
   public compra: any;
   public detalleventa: any;
   public detallecompra: any;
+  public times: number;
 
   constructor(
     public _usuarioService: UsuarioService,
@@ -27,6 +35,11 @@ export class AppComponent {
     public _detalleVentaService: DetalleVentaService
   ) {
     this.loadStorage();
+    this.loadVentas();
+    //this.loadCompra();
+    //this.loadDetalleCompraService();
+    //this.loadDetalleVentaService();
+    this.times = 0;
   }
 
   public loadStorage() {
@@ -36,16 +49,59 @@ export class AppComponent {
 
   loadVentas() {
     this._ventaService.getSells().subscribe(
-      response=>{
-        if(response.code==200){
-          this.venta=response.data;
+      response => {
+        if (response.code == 200) {
+          this.venta = response.data;
         }
-      },error=>{
+      }, error => {
         this.venta = null;
       }
     );
   }
-  loadCompra() { }
-  loadDetalleCompraService() { }
-  loadDetalleVentaService() { }
+  /*loadCompra() {
+    this._compraService.register().subscribe(
+      response => {
+        if (response.code == 200) {
+          this.compra = response.data;
+        }
+      }, error => {
+        this.compra = null;
+      }
+    );
+  }
+  loadDetalleCompraService() {
+    this._detalleCompraService.register().subscribe(
+      response => {
+        if (response.code == 200) {
+          this.detallecompra = response.data;
+        }
+      }, error => {
+        this.detallecompra = null;
+      }
+    );
+  }
+  loadDetalleVentaService() {
+    this._detalleVentaService.register().subscribe(
+      response => {
+        if (response.code == 200) {
+          this.venta = response.data;
+        }
+      }, error => {
+        this.venta = null;
+      }
+    );
+  }*/
+  ngOnInit(): void {
+    this.times = 0;
+  }
+  ngDoCheck(): void {
+    this.times++;
+    if (this.times > 4) {
+      this.loadStorage();
+      this.loadVentas();
+      //this.loadCompra();
+      //this.loadDetalleCompraService();
+      //this.loadDetalleVentaService();
+    }
+  }
 }

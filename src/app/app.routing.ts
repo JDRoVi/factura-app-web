@@ -31,6 +31,7 @@ import { ErrorComponent } from './components/error/error.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
+    { path: 'inicio/:id', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'registrar-usuario', component: AgregarUsuarioComponent },
     { path: 'registrar-empleado', component: AgregarEmpleadoComponent },
