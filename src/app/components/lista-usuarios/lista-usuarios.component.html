@@ -1,0 +1,23 @@
+<div class="loading" *ngIf="!usuarios">Cargando</div>
+<div class="container-fluid mt-3" *ngIf="usuarios">
+    <h3>Todas la ventas</h3>
+    <hr>
+    <div class="card-columns">
+        <span *ngFor = "let user of usuarios">
+            <div class="card w-100 fr-box">
+                <div class="card-header mt2">
+                    <h5>{{user.nombreUsuario}}</h5>
+                </div>
+                <div class="card-body">
+                    <h6>
+                        {{user.nivelUsuario}}
+                        {{user.idEmpleado}}
+                    </h6>
+                </div>
+                <div class="user-buttons mt-2">
+                    <a class="btn btn-" [routerLink]="['editar-usuario',user.id]">Editar</a>
+                </div>
+            </div>
+        </span>
+    </div>
+</div>

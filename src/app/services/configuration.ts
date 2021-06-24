@@ -1,0 +1,1 @@
+export var global = { urlApi: 'http://localhost:8000/api/' }

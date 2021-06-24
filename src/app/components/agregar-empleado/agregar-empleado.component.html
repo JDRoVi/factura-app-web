@@ -1,0 +1,28 @@
+<div class="col-md-12 mt-4">
+    <h2>Registro de empleado</h2>
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" {ngSumbit}="onSubmit(registerForm)">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" class="form-control" required pattern="[a-zA-Z]+" #nombre="ngModel" [(ngModel)]="employe.nombre">
+            <small class="invalid-feedback d-block" *ngIf="nombre.touched&&!nombre.valid">El nombre no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Direccion</label>
+            <input type="text" name="direccion" class="form-control" required #nombre="ngModel" [(ngModel)]="employe.direccion">
+        </div>
+        <div class="form-group">
+            <label>Telefono</label>
+            <input type="text" name="telefono" class="form-control" required #nombre="ngModel" [(ngModel)]="employe.telefono">
+        </div>
+        <div class="form-group">
+            <label>Correo</label>
+            <input type="email" name="correo" class="form-control" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #correo="ngModel" [(ngModel)]="employe.correo">
+            <small class="invalid-feedback d-block" *ngIf="correo.touched&&!correo.valid">El correo no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Nivel de usuario</label>
+            <input type="number" name="tipo" class="form-control" required #nombre="ngModel" [(ngModel)]="employe.tipo">
+        </div>
+        <input type="submit" value="Agregar" class="btn btn-success">
+    </form>
+</div>

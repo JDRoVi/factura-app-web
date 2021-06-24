@@ -1,0 +1,17 @@
+<div class="cli-md-12 mt-4">
+    <div class="alert alert-danger" *ngIf="status==1">
+        Usuario y/o contrasena incorrecta.
+    </div>
+    <form class="col-md-4 mr-auto ml-auto" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <h2 class="text-center">Inicio de sesion</h2>
+        <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input type="user" name="usuario" required class="form-control" #usuario="ngModel" [(ngModel)]="user.nombreUsuario">
+        </div>
+        <div class="form-group">
+            <label>Contrasena</label>
+            <input type="password" name="contrasena" required class="form-control" #contrasena="ngModel" [(ngModel)]="user.contrasena">
+        </div>
+        <input type="submit" value="Iniciar sesion" class="btn btn-success" [disabled]="loginForm.invalid">
+    </form>
+</div>

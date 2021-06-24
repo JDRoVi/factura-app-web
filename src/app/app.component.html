@@ -1,12 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facturacion</title>
-</head>
-<body>
-  <h1>Proyecto creado</h1>
-</body>
-</html>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Sistema de facturacion</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="navHome" class="nav-link" [routerLink]="['']">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <div class="subnav">
+            <button class="subnavbtn">Categorias<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <div class="subnav-content">
+              <span *ngFor="let cat of ">
+                <a [routerLink]="['/inicio/'+cat.id]">{{cat.name}}</a>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav navbar-right" *ngIf="">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{identity.email}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/registrar-cliente']">Agregar cliente</a>
+            <a class="dropdown-item" [routerLink]="['/registrar-empleado']">Agregar empleado</a>
+            <a class="dropdown-item" [routerLink]="['/registrar-proveedor']">Agregar proveedor</a>
+            <a class="dropdown-item" [routerLink]="['/registrar-usuario']">Agregar usuario</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" *ngIf="identity &&identity.role=='10'">Configuración</a>
+            <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar sesión</a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="oulet">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<footer>
+  <p class="text-center mt-4">&copy; Todos los derechos reservados. App Web de Daniel Rodriguez y Michael Yubank</p>
+</footer>

@@ -1,0 +1,24 @@
+<div class="col-md-12 mt-4">
+    <h2>Registro de usuario</h2>
+    <div [ngSwitch]="status">
+        <div class="alert alert-success" *ngSwitchCase="0">
+            Registro exitoso
+        </div>
+        <div class="alert alert-danger" *ngSwitchCase="2">
+            Error en el registro
+        </div>
+    </div>
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" {ngSumbit}="onSubmit(registerForm)">
+        <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input type="text" name="nombreUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nombreUsuario="ngModel" [(ngModel)]="user.nombreUsuario">
+            <small class="invalid-feedback d-block" *ngIf="nombreUsuario.touched&&!nombreUsuario.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Contrasena</label>
+            <input type="password" name="contrasena" class="form-control" min="6" max="12" required pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.[@#$!?+-]})[a-zA-Z\d@#$!?+-]{6,12}$" #contrasena="ngModel" [(ngModel)]="user.contrasena">
+            <small class="invalid-feedback d-block" *ngIf="contrasena.touched&&!contrasena.valid">La contrasena no es valida</small>
+        </div>
+        <input type="submit" value="Registrar" class="btn btn-success" [disabled]="registerForm.invalid">
+    </form>
+</div>
