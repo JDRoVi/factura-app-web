@@ -28,7 +28,11 @@ export class ListaProveedoresComponent implements OnInit {
 
   getProviders() {
     this._proveedoresService.getProviders().subscribe(
-      response => { }, error => { }
-    )
+      response => {
+        if (response.code == 200) {
+          this.proveedor = response.data;
+        }
+      }, error => { }
+    );
   }
 }

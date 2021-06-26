@@ -28,7 +28,11 @@ export class HomeComponent implements OnInit {
 
   getProducts() {
     this._productService.getProducts().subscribe(
-      response => { }, error => { }
-    )
+      response => {
+        if (response.code == 200) {
+          this.productos = response.data;
+        }
+      }, error => { }
+    );
   }
 }
