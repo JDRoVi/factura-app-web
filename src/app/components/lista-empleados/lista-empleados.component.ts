@@ -29,7 +29,11 @@ export class ListaEmpleadosComponent implements OnInit {
 
   getEmployees() {
     this._empleadoService.getEmployees().subscribe(
-      response => { }, error => { }
-    )
+      response => {
+        if (response.code == 200) {
+          this.empleados = response.data;
+        }
+      }, error => { }
+    );
   }
 }

@@ -1,10 +1,23 @@
-<div class="loading" *ngIf="!productos">Cargando</div>
+<div class="loading" *ngIf="!productos">Cargando...</div>
 <div class="container-fluid mt-3" *ngIf="productos">
     <h3>Todas la ventas</h3>
     <hr>
-    <div class="table table-hover table-bordered">
-        <thead class="table-info">
-
-        </thead>
+    <div class="card-columns">
+        <span *ngFor="let product of productos">
+            <div class="card w-100 fr-box">
+                <div class="card-header mt-2">
+                    <h5>{{product.nombre}}</h5>
+                </div>
+                <div class="card-body mt-2">
+                    <h6>ID: {{product.id}}</h6>
+                    <h6>Cantidad: {{product.cantidad}}</h6>
+                    <h6>Precio unitario: {{product.precioUnidad}}</h6>
+                    <h6>Fecha de caducidad: {{product.fechaCaducidad}}</h6>
+                </div>
+                <div class="post-buttons">
+                    <a class="btn btn-info"></a>
+                </div>
+            </div>
+        </span>
     </div>
 </div>

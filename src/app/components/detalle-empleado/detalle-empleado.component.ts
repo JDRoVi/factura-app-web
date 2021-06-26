@@ -20,7 +20,7 @@ export class DetalleEmpleadoComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.url = global.urlApi;
-    this.employee = new Empleado(1, "", "", "", "", 1);
+    this.employee = new Empleado(1, "", "", "", "", "", 1);
   }
 
   ngOnInit(): void {

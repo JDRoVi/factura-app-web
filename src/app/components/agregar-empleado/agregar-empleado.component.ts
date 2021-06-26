@@ -14,7 +14,7 @@ export class AgregarEmpleadoComponent implements OnInit {
   public status: number;
 
   constructor(private _empleadoService: EmpleadoService) {
-    this.employe = new Empleado(1, "", "", "", "", 1);
+    this.employe = new Empleado(1, "", "", "", "", "", 1);
     this.status = -1;
   }
 

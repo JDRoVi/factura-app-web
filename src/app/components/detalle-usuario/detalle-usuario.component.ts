@@ -20,7 +20,7 @@ export class DetalleUsuarioComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.url = global.urlApi;
-    this.user = new Usuario(1, 1, "", "", 1);
+    this.user = new Usuario(1, "", "", 1);
   }
 
   ngOnInit(): void {

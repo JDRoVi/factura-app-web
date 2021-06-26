@@ -14,7 +14,7 @@ export class AgregarUsuarioComponent implements OnInit {
   public status: number;
 
   constructor(private _usuarioService: UsuarioService) {
-    this.user = new Usuario(1, 1, "", "", 1);
+    this.user = new Usuario(1, "", "", 1);
     this.status = -1;
   }
 

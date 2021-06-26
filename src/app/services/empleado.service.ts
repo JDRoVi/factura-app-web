@@ -9,15 +9,15 @@ import { Empleado } from '../models/empleado';
     constructor(public _http: HttpClient) {
         this.url = global.urlApi;
     }
-    register(user: Empleado): Observable<any> {
-        let data = JSON.stringify(user);
+    register(empl: Empleado): Observable<any> {
+        let data = JSON.stringify(empl);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.post(this.url + 'employee', params, { headers: httpHeaders });
     }
     getEmployees(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this._http + 'employye', { headers: httpHeader });
+        return this._http.get(this.url + 'employye', { headers: httpHeader });
     }
     getEmployee(id: string): Observable<any> {
         return this._http.get(this.url + 'employee/' + id)

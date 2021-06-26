@@ -28,7 +28,11 @@ export class ListaClientesComponent implements OnInit {
 
   getUsers() {
     this._clienteService.getClients().subscribe(
-      response => { }, error => { }
-    )
+      response => {
+        if(response.code==200){
+          this.clientes=response.data;
+        }
+      }, error => { }
+    );
   }
 }

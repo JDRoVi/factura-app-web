@@ -12,7 +12,7 @@ import { Usuario } from '../../models/usuario';
 export class ListaUsuariosComponent implements OnInit {
   public usuarios: Array<Usuario>
   public url: string;
-  
+
   constructor(private _usuarioService: UsuarioService) {
     this.usuarios = [];
     this.url = global.urlApi;
@@ -28,7 +28,11 @@ export class ListaUsuariosComponent implements OnInit {
 
   getUsers() {
     this._usuarioService.getUsers().subscribe(
-      response => { }, error => { }
-    )
+      response => {
+        if (response.code == 200) {
+          this.usuarios = response.data;
+        }
+      }, error => { }
+    );
   }
 }

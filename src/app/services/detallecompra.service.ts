@@ -9,8 +9,8 @@ import { DetalleCompra } from '../models/detallecompra';
     constructor(public _http: HttpClient) {
         this.url = global.urlApi;
     }
-    register(user: DetalleCompra): Observable<any> {
-        let data = JSON.stringify(user);
+    register(purchDetail: DetalleCompra): Observable<any> {
+        let data = JSON.stringify(purchDetail);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.post(this.url + 'purchasedetails', params, { headers: httpHeaders });

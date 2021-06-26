@@ -33,6 +33,8 @@ import { DetalleProductoComponent } from './components/detalle-producto/detalle-
 import { FacturaVentaComponent } from './components/factura-venta/factura-venta.component';
 import { FacturaCompraComponent } from './components/factura-compra/factura-compra.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { UsuarioGuard } from './usuario.guard';
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     DetalleProductoComponent,
     FacturaVentaComponent,
     FacturaCompraComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     FroalaViewModule.forRoot(),
     FroalaEditorModule.forRoot()
   ],
-  providers: [appRoutingProviders],
-  bootstrap: [AppComponent]
+  providers: [appRoutingProviders, UsuarioGuard, UsuarioService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

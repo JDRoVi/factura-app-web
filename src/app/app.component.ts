@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { UsuarioService } from './services/usuario.service';
 import { VentaService } from './services/venta.service';
 import { CompraService } from './services/compra.service';
 import { DetalleCompraService } from './services/detalleventa.service';
 import { DetalleVentaService } from './services/detallecompra.service';
-import { global } from './services/configuration';
+import { Router, ActivatedRoute } from '@angular/router';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,9 +28,13 @@ export class AppComponent {
   public compra: any;
   public detalleventa: any;
   public detallecompra: any;
+  public historial: any;
+  public facturas:any;
   public times: number;
 
   constructor(
+    public _router: Router,
+    public _route: ActivatedRoute,
     public _usuarioService: UsuarioService,
     public _ventaService: VentaService,
     public _compraService: CompraService,
@@ -36,14 +43,12 @@ export class AppComponent {
   ) {
     this.loadStorage();
     this.loadVentas();
-    //this.loadCompra();
-    //this.loadDetalleCompraService();
-    //this.loadDetalleVentaService();
     this.times = 0;
   }
 
-  public loadStorage() {
+  loadStorage() {
     this.identity = this._usuarioService.getIdentity();
+    console.log(this.identity);
     this.token = this._usuarioService.getToken();
   }
 
@@ -58,50 +63,34 @@ export class AppComponent {
       }
     );
   }
-  /*loadCompra() {
-    this._compraService.register().subscribe(
-      response => {
-        if (response.code == 200) {
-          this.compra = response.data;
+
+  logout(){
+    this._route.params.subscribe(
+      params => {
+        let logout = + params['sure'];
+
+        if(logout == 1){
+            localStorage.removeItem('identity');
+            localStorage.removeItem('token');
+
+            this.identity = null;
+            this.token = null;
+            this._router.navigate(['login']);
         }
-      }, error => {
-        this.compra = null;
-      }
-    );
-  }
-  loadDetalleCompraService() {
-    this._detalleCompraService.register().subscribe(
-      response => {
-        if (response.code == 200) {
-          this.detallecompra = response.data;
-        }
-      }, error => {
-        this.detallecompra = null;
-      }
-    );
-  }
-  loadDetalleVentaService() {
-    this._detalleVentaService.register().subscribe(
-      response => {
-        if (response.code == 200) {
-          this.venta = response.data;
-        }
-      }, error => {
-        this.venta = null;
-      }
-    );
-  }*/
+    });
+}
+
   ngOnInit(): void {
+    this.logout();
     this.times = 0;
   }
+  
   ngDoCheck(): void {
     this.times++;
+    this.loadStorage();
     if (this.times > 4) {
-      this.loadStorage();
       this.loadVentas();
-      //this.loadCompra();
-      //this.loadDetalleCompraService();
-      //this.loadDetalleVentaService();
+      this.times = 0;
     }
   }
 }
