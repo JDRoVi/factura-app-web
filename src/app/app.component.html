@@ -17,55 +17,47 @@
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down" *ngIf="compra"></i></button>
             <div class="subnav-content">
-              <span *ngFor="let pursh of compra">
-                <a [routerLink]="['/compra-productos/'+pursh.id]">{{pursh.id}}</a>
-              </span>
+              <a [routerLink]="['/compra-productos']"></a>
             </div>
           </div>
         </li>
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down" *ngIf="historial"></i></button>
             <div class="subnav-content">
-              <span *ngFor="let detp of detallecompra">
-                <a [routerLink]="['/historial-compras/'+detp.id]">{{detp.id}}</a>
-              </span>
+              <a [routerLink]="['/factura-compra']"></a>
             </div>
           </div>
         </li>
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down" *ngIf="venta"></i></button>
             <div class="subnav-content">
-              <span *ngFor="let sell of venta">
-                <a [routerLink]="['/checkout/'+sell.id]">{{sell.name}}</a>
-              </span>
+              <a [routerLink]="['/checkout']"></a>
             </div>
           </div>
         </li>
       
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Facturas<i class="fa fa-caret-down" *ngIf=""></i></button>
+            <button class="subnavbtn">Facturas<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
-              <span *ngFor="let dets of detalleventa">
-                <a [routerLink]="['/factura-compra//'+dets.id]">{{dets.id}}</a>
-              </span>
+              <a [routerLink]="['/factura-venta']"></a>
             </div>
           </div>
         </li>
 
       </ul>
 
-      <ul class="navbar-nav navbar-right" *ngIf="">
+      <ul class="navbar-nav navbar-right" *ngIf="identity">
         <li class="nav-item dropdown">
+          Menu Cliente
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            {{identity.email}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" [routerLink]="['/registrar-cliente']">Agregar cliente</a>
@@ -73,7 +65,7 @@
             <a class="dropdown-item" [routerLink]="['/registrar-proveedor']">Agregar proveedor</a>
             <a class="dropdown-item" [routerLink]="['/registrar-usuario']">Agregar usuario</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" *ngIf="identity &&identity.role=='10'">Configuración</a>
+            <a class="dropdown-item" *ngIf="identity && identity.role=='10'">Configuración</a>
             <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar sesión</a>
           </div>
         </li>

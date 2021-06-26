@@ -17,7 +17,8 @@ import { Producto } from '../models/producto';
     }
     getProducts(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this._http + 'product', { headers: httpHeader });
+        const getProducts = this._http.get(this.url + 'product', { headers: httpHeader });
+        return getProducts;
     }
     getProduct(id: string): Observable<any> {
         return this._http.get(this.url + 'product/' + id)

@@ -20,10 +20,19 @@ import { Usuario } from '../models/usuario';
         return this._http.post(this.url + 'user', params, { headers: httpHeaders });
     }
     signin(user: Usuario): Observable<any> {
+        console.log(user);
         let data = JSON.stringify(user);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
         return this._http.post(this.url + 'user/login', params, { headers: httpHeaders });
+    }
+    signup(user: Usuario): Observable<any>{
+
+        let json = JSON.stringify(user);
+        let params = 'json='+json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(this.url+'user/login', params, {headers:headers});
     }
     public getToken() {
         let tk = localStorage.getItem('token');
@@ -40,7 +49,9 @@ import { Usuario } from '../models/usuario';
         } else {
             this.identity = null;
         }
+        console.log(this.identity);
         return this.identity;
+
     }
     public loadIdentity() {
         let httpHeaders = new HttpHeaders().append('Content-Type', 'application/x-www-form-urlencoded').append('token', this.token);
@@ -48,7 +59,7 @@ import { Usuario } from '../models/usuario';
     }
     getUsers(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this._http + 'user', { headers: httpHeader });
+        return this._http.get(this.url + 'user', { headers: httpHeader });
     }
     getUser(id: string): Observable<any> {
         return this._http.get(this.url + 'user/' + id)

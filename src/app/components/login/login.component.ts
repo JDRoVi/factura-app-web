@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    this._usuarioService.signin(this.user).subscribe(
+    console.log(this.user);
+    this._usuarioService.signup(this.user).subscribe(
       response => {
         if (response.status != "error") {
           this.token = response;

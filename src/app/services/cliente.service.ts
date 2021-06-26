@@ -17,7 +17,7 @@ import { Cliente } from '../models/cliente';
     }
     getClients(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this._http + 'client', { headers: httpHeader });
+        return this._http.get(this.url + 'client', { headers: httpHeader });
     }
     getClient(id: string): Observable<any> {
         return this._http.get(this.url + 'client/' + id)
