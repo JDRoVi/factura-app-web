@@ -1,1 +1,31 @@
-<p>lista-empleados works!</p>
+<div class="loading" *ngIf="!empleados">Cargando...</div>
+<div class="container-fluid mt-3">
+    <h3>Lista de empleados</h3>
+    <hr>
+    <button type="button" class="btn btn-success">Agregar empleado</button>
+    <table class="table" *ngIf="empleados">
+        <thead>
+            <tr>
+                <th scope="col">Numero de ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo electronico</th>
+                <th scope="col">Tipo de empleado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empl of empleados">
+                <td scope="table">{{empl.id}}</td>
+                <td>{{empl.nombre}}</td>
+                <td>{{empl.apellido}}</td>
+                <td>{{empl.direccion}}</td>
+                <td>{{empl.telefono}}</td>
+                <td>{{empl.correo}}</td>
+                <td>{{empl.tipo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

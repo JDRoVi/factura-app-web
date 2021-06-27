@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { global } from '../../services/configuration';
 import { Cliente } from '../../models/cliente';
 import { ClienteService } from '../../services/cliente.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-lista-clientes',

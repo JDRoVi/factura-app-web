@@ -8,11 +8,21 @@
             Error en el registro
         </div>
     </div>
-    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" {ngSumbit}="onSubmit(registerForm)">
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="form-group">
             <label>Nombre de usuario</label>
             <input type="text" name="nombreUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nombreUsuario="ngModel" [(ngModel)]="user.nombreUsuario">
             <small class="invalid-feedback d-block" *ngIf="nombreUsuario.touched&&!nombreUsuario.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Codigo de empleado</label>
+            <input type="number" name="idEmpleado" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #idEmpleado="ngModel" [(ngModel)]="user.idEmpleado">
+            <small class="invalid-feedback d-block" *ngIf="idEmpleado.touched&&!idEmpleado.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Nivel de usuario</label>
+            <input type="number" name="nivelUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nivelUsuario="ngModel" [(ngModel)]="user.nivelUsuario">
+            <small class="invalid-feedback d-block" *ngIf="nivelUsuario.touched&&!nivelUsuario.valid">El nombre de usuario no es valido</small>
         </div>
         <div class="form-group">
             <label>Contrasena</label>

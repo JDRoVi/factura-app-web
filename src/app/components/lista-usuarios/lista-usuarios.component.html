@@ -1,22 +1,25 @@
 <div class="loading" *ngIf="!usuarios">Cargando</div>
 <div class="container-fluid mt-3" *ngIf="usuarios">
-    <h3>Todas la ventas</h3>
+    <h3>Todos los usuarios</h3>
     <hr>
-    <div class="card-columns">
-        <span *ngFor = "let user of usuarios">
-            <div class="card w-100 fr-box">
-                <div class="card-header mt2">
-                    <h5>{{user.nombreUsuario}}</h5>
-                </div>
-                <div class="card-body">
-                    <h6>
-                        {{user.nivelUsuario}}
-                    </h6>
-                </div>
-                <div class="user-buttons mt-2">
-                    <a class="btn btn-" [routerLink]="['editar-usuario',user.id]">Editar</a>
-                </div>
-            </div>
-        </span>
-    </div>
+    <button type="button" class="btn btn-success" [routerLink]="['/registrar-usuario']">Agregar usuario</button>
+    <table class="table" *ngIf="usuarios">
+        <thead>
+            <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Nivel de usuario</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usuarios">
+                <td scope="table">{{user.nombreUsuario}}</td>
+                <td>{{user.nivelUsuario}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink] = "['/detalle-usuario',user.id]">Ver</a>
+                    <a class="btn btn-danger" ></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

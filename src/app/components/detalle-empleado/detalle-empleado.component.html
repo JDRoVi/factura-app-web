@@ -1,1 +1,15 @@
-<p>detalle-empleado works!</p>
+<div class="col-md-12" *ngIf="!employee">
+    <h5>Cargando...</h5>
+</div>
+<div class="col-md-12" *ngIf="employee">
+    <h3>{{employee.id}}</h3>
+    <h4>{{employee.nombre}}</h4>
+    <h4>{{employee.apellido}}</h4>
+    <h4>{{employee.direccion}}</h4>
+    <h4>{{employee.telefono}}</h4>
+    <h4>{{employee.correo}}</h4>
+    <h4>{{employee.tipo}}</h4>
+    <hr>
+    <button class="btn btn-primary" >Editar</button>
+    <button class="btn btn-danger">Borrar</button>
+</div>

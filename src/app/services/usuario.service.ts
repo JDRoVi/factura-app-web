@@ -14,13 +14,13 @@ import { Usuario } from '../models/usuario';
         this.identity = null;
     }
     register(user: Usuario): Observable<any> {
+        this.getToken();
         let data = JSON.stringify(user);
         let params = 'json=' + data;
-        let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
+        let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded').set('token',this.token);
         return this._http.post(this.url + 'user', params, { headers: httpHeaders });
     }
     signin(user: Usuario): Observable<any> {
-        console.log(user);
         let data = JSON.stringify(user);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
@@ -49,7 +49,6 @@ import { Usuario } from '../models/usuario';
         } else {
             this.identity = null;
         }
-        console.log(this.identity);
         return this.identity;
 
     }
@@ -58,8 +57,10 @@ import { Usuario } from '../models/usuario';
         return this._http.post(this.url + 'user/getidentity', null, { headers: httpHeaders });
     }
     getUsers(): Observable<any> {
-        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this.url + 'user', { headers: httpHeader });
+        this.getToken();
+        let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded').set('token',this.token);
+        const getUsers = this._http.get(this.url + 'user', { headers: httpHeader });
+        return getUsers;
     }
     getUser(id: string): Observable<any> {
         return this._http.get(this.url + 'user/' + id)

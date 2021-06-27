@@ -48,7 +48,6 @@ export class AppComponent {
 
   loadStorage() {
     this.identity = this._usuarioService.getIdentity();
-    console.log(this.identity);
     this.token = this._usuarioService.getToken();
   }
 

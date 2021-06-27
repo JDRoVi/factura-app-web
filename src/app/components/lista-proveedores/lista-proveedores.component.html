@@ -1,1 +1,27 @@
-<p>lista-proveedores works!</p>
+<div class="loading" *ngIf="!proveedor">Cargando...</div>
+<div class="container-fluid mt-3">
+    <h3>Lista de proveedores</h3>
+    <hr>
+    <button type="button" class="btn btn-success" >Agregar proveedor</button>
+    <table>
+        <thead>
+            <th scope="col">Numero de ID</th>
+            <th scope="col">Empleado asignado</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cedula juridica</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Volumen de ventas</th>
+            <th scope="col">Opciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prov of proveedor">
+                <td scope="table">{{prov.id}}</td>
+                <td>{{prov.idEmpleado}}</td>
+                <td>{{prov.nombre}}</td>
+                <td>{{prov.cedulaJuridica}}</td>
+                <td>{{prov.direccion}}</td>
+                <td>{{prov.volumenVentas}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

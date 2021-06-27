@@ -1,1 +1,13 @@
-<p>detalle-cliente works!</p>
+<div class="col-md-12" *ngIf="!client">
+    <h5>Cargando...</h5>
+</div>
+<div class="col-md-12" *ngIf="client">
+    <h3>{{client.id}}</h3>
+    <h4>{{client.nombre}}</h4>
+    <h4>{{client.direccion}}</h4>
+    <h4>{{client.telefono}}</h4>
+    <h4>{{client.correo}}</h4>
+    <hr>
+    <button class="btn btn-primary" >Editar</button>
+    <button class="btn btn-danger">Borrar</button>
+</div>

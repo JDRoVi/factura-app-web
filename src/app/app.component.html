@@ -60,9 +60,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" [routerLink]="['/lista-clientes']">Lista de cliente</a>
-            <a class="dropdown-item" [routerLink]="['/registrar-empleado']">Agregar empleado</a>
-            <a class="dropdown-item" [routerLink]="['/registrar-proveedor']">Agregar proveedor</a>
-            <a class="dropdown-item" [routerLink]="['/registrar-usuario']">Agregar usuario</a>
+            <a class="dropdown-item" [routerLink]="['/lista-empleados']">Lista de empleado</a>
+            <a class="dropdown-item" [routerLink]="['/lista-proveedores']">Lista de proveedores</a>
+            <a class="dropdown-item" [routerLink]="['/lista-usuarios']">Lista de usuarios</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" *ngIf="identity && identity.role=='10'">Configuración</a>
             <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar sesión</a>

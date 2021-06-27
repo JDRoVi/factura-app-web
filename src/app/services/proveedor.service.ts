@@ -17,7 +17,8 @@ import { Proveedor } from '../models/proveedor';
     }
     getProviders(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this.url + 'provider', { headers: httpHeader });
+        const getProviders = this._http.get(this.url + 'provider', { headers: httpHeader });
+        return getProviders;
     }
     getProvider(id: string): Observable<any> {
         return this._http.get(this.url + 'provider/' + id)
