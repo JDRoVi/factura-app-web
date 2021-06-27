@@ -14,4 +14,5 @@ export class EditarProveedorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: any) {}
 }

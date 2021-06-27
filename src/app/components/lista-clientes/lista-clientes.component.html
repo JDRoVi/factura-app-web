@@ -21,6 +21,10 @@
                 <td>{{client.direccion}}</td>
                 <td>{{client.telefono}}</td>
                 <td>{{client.correo}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink] = "['/detalle-cliente',client.id]">Ver</a>
+                    <a class="btn btn-danger" >Borrar</a>
+                </td>
             </tr>
         </tbody>
     </table>\

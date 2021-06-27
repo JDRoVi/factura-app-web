@@ -44,4 +44,6 @@ export class EditarClienteComponent implements OnInit {
       }
     )
   }
+
+  onSubmit(form: any) {}
 }

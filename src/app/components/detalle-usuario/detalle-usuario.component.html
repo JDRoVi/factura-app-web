@@ -2,9 +2,13 @@
     <h5>Cargando...</h5>
 </div>
 <div class="col-md-12" *ngIf="user">
-    <h3>{{user.id}}</h3>
-    <h4>{{user.nombreUsuario}}</h4>
-    <h4>{{user.nivelUsuario}}</h4>
+    <h3>ID: {{user.id}}</h3>
+    <hr>
+    <h4>
+        Nombre de Usuario: {{user.nombreUsuario}}
+        <hr>
+        Nivel de usuario: {{user.nivelUsuario}}
+    </h4>
     <hr>
     <button class="btn btn-primary" >Editar</button>
     <button class="btn btn-danger">Borrar</button>

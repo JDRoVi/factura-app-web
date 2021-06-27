@@ -15,40 +15,20 @@
           <a id="navHome" class="nav-link" [routerLink]="['']">Inicio</a>
         </li>
 
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/compra-productos']"></a>
-            </div>
-          </div>
+        <li class="nav-item active">
+          <a id="nav-compra-productos" class="nav-link" [routerLink]="['/compra-productos']">Compra de productos</a>
         </li>
 
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/factura-compra']"></a>
-            </div>
-          </div>
+        <li class="nav-item active">
+          <a id="nav-factura-compra" class="nav-link" [routerLink]="['/factura-compra']">Historial de compras</a>
         </li>
 
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/checkout']"></a>
-            </div>
-          </div>
+        <li class="nav-item active">
+          <a id="nav-checkout" class="nav-link" [routerLink]="['/checkout']">Sistema de ventas</a>
         </li>
       
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Facturas<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/factura-venta']"></a>
-            </div>
-          </div>
+        <li class="nav-item active">
+          <a id="nav-facturas" class="nav-link" [routerLink]="['/factura-venta']">Facturas</a>
         </li>
 
       </ul>

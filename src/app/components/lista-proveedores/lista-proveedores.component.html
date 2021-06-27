@@ -21,6 +21,10 @@
                 <td>{{prov.cedulaJuridica}}</td>
                 <td>{{prov.direccion}}</td>
                 <td>{{prov.volumenVentas}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink] = "['/detalle-proveedor',prov.id]">Ver</a>
+                    <a class="btn btn-danger" >Borrar</a>
+                </td>
             </tr>
         </tbody>
     </table>

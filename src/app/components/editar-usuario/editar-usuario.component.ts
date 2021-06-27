@@ -12,4 +12,5 @@ export class EditarUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: any) {}
 }

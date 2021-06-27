@@ -16,17 +16,17 @@
         </div>
         <div class="form-group">
             <label>Codigo de empleado</label>
-            <input type="number" name="idEmpleado" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #idEmpleado="ngModel" [(ngModel)]="user.idEmpleado">
+            <input type="number" name="idEmpleado" class="form-control" required #idEmpleado="ngModel" [(ngModel)]="user.idEmpleado">
             <small class="invalid-feedback d-block" *ngIf="idEmpleado.touched&&!idEmpleado.valid">El nombre de usuario no es valido</small>
         </div>
         <div class="form-group">
             <label>Nivel de usuario</label>
-            <input type="number" name="nivelUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nivelUsuario="ngModel" [(ngModel)]="user.nivelUsuario">
+            <input type="number" name="nivelUsuario" class="form-control" required #nivelUsuario="ngModel" [(ngModel)]="user.nivelUsuario">
             <small class="invalid-feedback d-block" *ngIf="nivelUsuario.touched&&!nivelUsuario.valid">El nombre de usuario no es valido</small>
         </div>
         <div class="form-group">
             <label>Contrasena</label>
-            <input type="password" name="contrasena" class="form-control" min="6" max="12" required pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.[@#$!?+-]})[a-zA-Z\d@#$!?+-]{6,12}$" #contrasena="ngModel" [(ngModel)]="user.password">
+            <input type="password" name="contrasena" class="form-control" min="6" max="12"  #contrasena="ngModel" [(ngModel)]="user.password">
             <small class="invalid-feedback d-block" *ngIf="contrasena.touched&&!contrasena.valid">La contrasena no es valida</small>
         </div>
         <input type="submit" value="Registrar" class="btn btn-success" [disabled]="registerForm.invalid">

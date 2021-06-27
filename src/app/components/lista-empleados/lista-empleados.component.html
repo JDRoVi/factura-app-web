@@ -25,6 +25,10 @@
                 <td>{{empl.telefono}}</td>
                 <td>{{empl.correo}}</td>
                 <td>{{empl.tipo}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink] = "['/detalle-empleado',empl.id]">Ver</a>
+                    <a class="btn btn-danger" >Borrar</a>
+                </td>
             </tr>
         </tbody>
     </table>

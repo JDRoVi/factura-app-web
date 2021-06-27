@@ -1,1 +1,12 @@
-<p>editar-empleado works!</p>
+<div class="col-md-12 mt-4">
+    <h2>Editar empleado</h2>
+    <div [ngSwitch]="status">
+        <div class="alert alert-success" *ngSwitchCase="0">
+            Registro exitoso
+        </div>
+        <div class="alert alert-danger" *ngSwitchCase="2">
+            Error en el registro
+        </div>
+    </div>
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)"></form>
+</div>
