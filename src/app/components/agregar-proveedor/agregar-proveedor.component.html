@@ -1,1 +1,44 @@
-<p>agregar-proveedor works!</p>
+<div class="col-md-12 mt-4">
+    <h2>Registro de proveedor</h2>
+    <div [ngSwitch]="status">
+        <div class="alert alert-success" *ngSwitchCase="0">
+            Registro exitoso
+        </div>
+        <div class="alert alert-danger" *ngSwitchCase="2">
+            Error en el registro
+        </div>
+    </div>
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" {ngSumbit}="onSubmit(registerForm)">
+        <div class="form-group">
+            <label>Numero de identificacion</label>
+            <input type="number" name="id" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #id="ngModel" [(ngModel)]="prov.id">
+            <small class="invalid-feedback d-block" *ngIf="id.touched&&!id.valid">El numero no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Empleado asignado</label>
+            <input type="number" name="idEmpleado" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #idEmpleado="ngModel" [(ngModel)]="prov.idEmpleado">
+            <small class="invalid-feedback d-block" *ngIf="idEmpleado.touched&&!idEmpleado.valid">El numero no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Nombre del proveedor</label>
+            <input type="text" name="nombre" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nombre="ngModel" [(ngModel)]="prov.nombre">
+            <small class="invalid-feedback d-block" *ngIf="nombre.touched&&!nombre.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Cedula juridica</label>
+            <input type="number" name="cedulaJuridica" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #cedulaJuridica="ngModel" [(ngModel)]="prov.cedulaJuridica">
+            <small class="invalid-feedback d-block" *ngIf="cedulaJuridica.touched&&!cedulaJuridica.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Direccion</label>
+            <input type="text" name="direccion" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #direccion="ngModel" [(ngModel)]="prov.direccion">
+            <small class="invalid-feedback d-block" *ngIf="direccion.touched&&!direccion.valid">El nombre de usuario no es valido</small>
+        </div>
+        <div class="form-group">
+            <label>Volumen de ventas</label>
+            <input type="text" name="volumenVentas" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #volumenVentas="ngModel" [(ngModel)]="prov.volumenVentas">
+            <small class="invalid-feedback d-block" *ngIf="volumenVentas.touched&&!volumenVentas.valid">El nombre de usuario no es valido</small>
+        </div>
+        <input type="submit" value="Registrar" class="btn btn-success" [disabled]="registerForm.invalid">
+    </form>
+</div>

@@ -1,1 +1,27 @@
-<p>lista-clientes works!</p>
+<div class="loading" *ngIf="!clientes">Cargando...</div>
+<div class="container-fluid mt-3" >
+    <h3>Lista de clientes</h3>
+    <hr>
+    <div>
+        <table class="table" *ngIf="clientes">
+            <thead>
+                <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Correo elctronico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of clientes">
+                    <td scope="table">{{client.id}}</td>
+                    <td>{{client.nombre}}</td>
+                    <td>{{client.direccion}}</td>
+                    <td>{{client.telefono}}</td>
+                    <td>{{client.correo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
