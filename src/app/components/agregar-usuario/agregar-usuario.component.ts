@@ -39,10 +39,10 @@ export class AgregarUsuarioComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    console.log(this.user);
     let counter =timer(5000);
     this._usuarioService.register(this.user).subscribe(
       response => {
+        console.log(response);
         if (response.code == 200) {
           this.status = 0;
           counter.subscribe(n => { this.status = -1 });
@@ -51,6 +51,7 @@ export class AgregarUsuarioComponent implements OnInit {
           this.status = 1;
         }
       }, error => {
+        console.log(error);
         if (error.status>406) {
           this.status = 2;
           counter.subscribe(n => { this.status = -1 });

@@ -14,10 +14,10 @@ import { Usuario } from '../models/usuario';
         this.identity = null;
     }
     register(user: Usuario): Observable<any> {
-        let data = JSON.stringify(user);
-        let params = 'json=' + data;
-        let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.post(this.url +'user',params,{ headers: httpHeaders });
+        let data=JSON.stringify(user);
+        let params='json='+data;
+        let httpHeaders=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        return this._http.post(this.url+'user',params,{headers:httpHeaders});
     }
     signin(user: Usuario): Observable<any> {
         let data = JSON.stringify(user);
