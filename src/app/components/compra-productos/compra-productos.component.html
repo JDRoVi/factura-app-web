@@ -1,1 +1,108 @@
-<p>compra-productos works!</p>
+<div class="col-md-12 mt-4">
+    <div>
+        <div class="compra">
+            <div class="formbuy">
+                <form class="col-md-9 mr-auto ml-auto" #buyForm="ngForm" (ngSubmit)="onBuyit(buyForm) ">
+                    <h5>Registro de Compra</h5>
+                    <div class="form-group">
+                        <label for="empleado" class="form-label">Empleado</label>
+                        <input type="text" class="form-control" name="empleado" id="empleado" placeholder="Empleados..."
+                            list="enployeList" #empleado="ngModel" (ngModel)="buy.idBodeguero">
+                        <datalist name="employeList" id="enployeList">
+                            <option *ngFor="let emp of employes" [value]="emp.id">{{emp.nombre}}</option>
+                        </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataList" class="form-label">Proveedor</label>
+                        <input class="form-control" name="proveedor" id="datalist" placeholder="Proveedores..."
+                            list="provedorList" #proveedor="ngModel" (ngModel)="buy.idProveedor">
+                        <datalist id="provedorList" *ngIf="provider">
+                            <option *ngFor="let prov of provider" [value]="prov.id">{{prov.nombre}}</option>
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label>Numero Detalle</label>
+                        <input type="int" name="detalle" class="form-control" required #fecha="ngModel"
+                            [(ngModel)]="buy.idDetalle">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" name="fecha" class="form-control" required #codigo="ngModel"
+                            [(ngModel)]="buy.fecha">
+                    </div>
+                    <div class="form-group">
+                        <label>Costo Total</label>
+                        <input type="number" name="detalle" class="form-control" required #fecha="ngModel"
+                            [(ngModel)]="buy.total">
+                    </div>
+
+                    <input type="submit" value="Agregar" class="btn btn-success">
+
+                </form>
+
+            </div>
+            <div *ngIf="!details">Cargando Detalle...</div>
+            <div class="formbuy">
+                <h5>Detalle Compra</h5>
+                <table class="table" *ngIf="details">
+                    <thead>
+                        <tr>
+                            <th scope="col">Compra</th>
+                            <th scope="col">codigoProducto</th>
+                            <th scope="col">Prec Und</th>
+                            <th scope="col">subTotal</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let det of details">
+                        <tr>
+                            <th scope="table">{{det.idCompra}}</th>
+                            <td>{{det.idProducto}}</td>
+                            <td>{{det.precioUnidad}}</td>
+                            <td>{{det.subtotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="compra">
+            <form class="col-md-9 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+                <h5>Registro de Producto</h5>
+                <div class="form-group">
+                    <label>Codigo Producto</label>
+                    <input type="int" name="codigo" class="form-control" required #codigo="ngModel"
+                        [(ngModel)]="product.codigoProducto">
+                </div>
+                <div class="form-group">
+                    <label for="dataList" class="form-label">Proveedor</label>
+                    <input class="form-control" name="proveedor" id="datalist" placeholder="Proveedores..."
+                        list="provedorList" #proveedor="ngModel" (ngModel)="product.id">
+                    <datalist id="provedorList" *ngIf="provider">
+                        <option *ngFor="let prov of provider" [value]="prov.id">{{prov.nombre}}</option>
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" class="form-control" required #nombre="ngModel"
+                        [(ngModel)]="product.nombre">
+                </div>
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input type="int" name="cantidad" class="form-control" required #cantidad="ngModel"
+                        [(ngModel)]="product.cantidad">
+                </div>
+                <div class="form-group">
+                    <label>Fecha Caducidad</label>
+                    <input type="date" name="fechaCaducidad" class="form-control" required #fechaCaducidad="ngModel"
+                        [(ngModel)]="product.fechaCaducidad">
+                </div>
+                <div class="form-group">
+                    <label>Precio Unidad</label>
+                    <input type="int" name="precio" class="form-control" required #precio="ngModel"
+                        [(ngModel)]="product.precioUnidad">
+                </div>
+                <input type="submit" value="Agregar" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>

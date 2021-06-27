@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { global } from './configuration';
 import { DetalleVenta } from '../models/detalleventa';
 
-@Injectable() export class DetalleCompraService {
+@Injectable() export class DetalleVentaService {
     private url: string;
     constructor(public _http: HttpClient) {
         this.url = global.urlApi;

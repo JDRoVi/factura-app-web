@@ -2,8 +2,8 @@ import { Component, Injectable } from '@angular/core';
 import { UsuarioService } from './services/usuario.service';
 import { VentaService } from './services/venta.service';
 import { CompraService } from './services/compra.service';
-import { DetalleCompraService } from './services/detalleventa.service';
-import { DetalleVentaService } from './services/detallecompra.service';
+import { DetalleCompraService } from './services/detallecompra.service';
+import { DetalleVentaService } from './services/detalleventa.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
