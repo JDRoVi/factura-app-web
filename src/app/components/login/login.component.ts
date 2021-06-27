@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _routes: ActivatedRoute
   ) {
-    this.user = new Usuario(1, "", "", 1);
+    this.user = new Usuario(1, 1, "", "", 1);
     this.status = -1;
   }
 
