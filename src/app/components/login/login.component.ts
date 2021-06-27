@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    console.log(this.user);
     this._usuarioService.signup(this.user).subscribe(
       response => {
         if (response.status != "error") {

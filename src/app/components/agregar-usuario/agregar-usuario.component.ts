@@ -16,7 +16,7 @@ export class AgregarUsuarioComponent implements OnInit {
   public employes:any;
 
   constructor(private _usuarioService: UsuarioService,private _employeService:EmpleadoService) {
-    this.user = new Usuario(1, 1, "", "", 1);
+    this.user = new Usuario(1,1, "", "", 1);
     this.status = -1;
     this.loadEmployes();
   }
@@ -24,15 +24,14 @@ export class AgregarUsuarioComponent implements OnInit {
   public loadEmployes() {
     this._employeService.getEmployees().subscribe(
       response => {
-        console.log(response);
         if (response.code == 200) {
           this.employes = response.data;
         }
       },
-        error => {
-          this.employes = null;
-          console.log(error);
-        }
+      error => {
+        this.employes = null;
+        console.log(error);
+      }
     );
   }
 
@@ -40,6 +39,7 @@ export class AgregarUsuarioComponent implements OnInit {
   }
 
   onSubmit(form: any) {
+    console.log(this.user);
     let counter =timer(5000);
     this._usuarioService.register(this.user).subscribe(
       response => {
@@ -51,7 +51,7 @@ export class AgregarUsuarioComponent implements OnInit {
           this.status = 1;
         }
       }, error => {
-        if (error.status == 406) {
+        if (error.status>406) {
           this.status = 2;
           counter.subscribe(n => { this.status = -1 });
         }

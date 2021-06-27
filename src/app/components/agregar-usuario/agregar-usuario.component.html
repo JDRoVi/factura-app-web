@@ -8,15 +8,13 @@
             Error en el registro
         </div>
     </div>
-    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">34
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="form-group">
-            <label  for="empleado" class="form-label">Empleado</label>
-            <input class="form-control" name="empleado" id="empleado" placeholder="Empleados..."
-                list="enployeList" #empleador="ngModel"  [(ngModel)]="user.idEmpleado">
-            <datalist id="enployeList"  >
-                <option *ngFor="let emp of employes"  [value]="emp.id">{{emp.nombre}}</option>
-            </datalist>
+            <label>id empleado</label>
+            <input type="text" name="empleado" class="form-control" required #empleado="ngModel" [(ngModel)]="user.idEmpleado">
+            <small class="invalid-feedback d-block" *ngIf="empleado.touched&&!empleado">El nombre de usuario no es valido</small>
         </div>
+
         <div class="form-group">
             <label>Nombre de usuario</label>
             <input type="text" name="nombreUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nombreUsuario="ngModel" [(ngModel)]="user.nombreUsuario">
@@ -24,7 +22,7 @@
         </div>
         <div class="form-group">
             <label>Contrasena</label>
-            <input type="password" name="contrasena" class="form-control" min="6" max="12" required pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.[@#$!?+-]})[a-zA-Z\d@#$!?+-]{6,12}$" #contrasena="ngModel" [(ngModel)]="user.password">
+            <input type="password" name="contrasena" class="form-control" min="6" max="12"  #contrasena="ngModel" [(ngModel)]="user.password">
             <small class="invalid-feedback d-block" *ngIf="contrasena.touched&&!contrasena.valid">La contrasena no es valida</small>
         </div>
         <input type="submit" value="Registrar" class="btn btn-success" [disabled]="registerForm.invalid">

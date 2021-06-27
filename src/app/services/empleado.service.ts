@@ -17,7 +17,7 @@ import { Empleado } from '../models/empleado';
     }
     getEmployees(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.get(this.url + 'employye', { headers: httpHeader });
+        return this._http.get(this.url + 'employee', { headers: httpHeader });
     }
     getEmployee(id: string): Observable<any> {
         return this._http.get(this.url + 'employee/' + id)

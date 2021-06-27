@@ -17,10 +17,9 @@ import { Usuario } from '../models/usuario';
         let data = JSON.stringify(user);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.post(this.url + 'user', params, { headers: httpHeaders });
+        return this._http.post(this.url +'user',params,{ headers: httpHeaders });
     }
     signin(user: Usuario): Observable<any> {
-        console.log(user);
         let data = JSON.stringify(user);
         let params = 'json=' + data;
         let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
@@ -49,7 +48,6 @@ import { Usuario } from '../models/usuario';
         } else {
             this.identity = null;
         }
-        console.log(this.identity);
         return this.identity;
 
     }

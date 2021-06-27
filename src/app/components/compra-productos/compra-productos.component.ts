@@ -46,9 +46,9 @@ export class CompraProductosComponent implements OnInit {
   public loadEmployes() {
     this._employeService.getEmployees().subscribe(
       response => {
-        console.log(response);
         if (response.code == 200) {
           this.employes = response.data;
+          console.log(this.employes);
         }
       },
       error => {
