@@ -17,7 +17,7 @@
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down" *ngIf="compra"></i></button>
+            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
               <a [routerLink]="['/compra-productos']"></a>
             </div>
@@ -26,7 +26,7 @@
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down" *ngIf="historial"></i></button>
+            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
               <a [routerLink]="['/factura-compra']"></a>
             </div>
@@ -35,7 +35,7 @@
 
         <li class="nav-item">
           <div class="subnav">
-            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down" *ngIf="venta"></i></button>
+            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
               <a [routerLink]="['/checkout']"></a>
             </div>
@@ -55,7 +55,6 @@
 
       <ul class="navbar-nav navbar-right" *ngIf="identity">
         <li class="nav-item dropdown">
-          Menu Cliente
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
           </a>
