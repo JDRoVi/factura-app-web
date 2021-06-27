@@ -1,0 +1,12 @@
+.compra{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+}
+
+.formbuy{
+    width: 100%;
+    height: 100%;
+    display: inline-table;
+    margin-top: 30px;
+}

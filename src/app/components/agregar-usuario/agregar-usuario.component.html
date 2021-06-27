@@ -8,7 +8,15 @@
             Error en el registro
         </div>
     </div>
-    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" {ngSumbit}="onSubmit(registerForm)">
+    <form class="col-md-6 mr-auto ml-auto" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">34
+        <div class="form-group">
+            <label  for="empleado" class="form-label">Empleado</label>
+            <input class="form-control" name="empleado" id="empleado" placeholder="Empleados..."
+                list="enployeList" #empleador="ngModel"  [(ngModel)]="user.idEmpleado">
+            <datalist id="enployeList"  >
+                <option *ngFor="let emp of employes"  [value]="emp.id">{{emp.nombre}}</option>
+            </datalist>
+        </div>
         <div class="form-group">
             <label>Nombre de usuario</label>
             <input type="text" name="nombreUsuario" class="form-control" required pattern="[A-Za-z0-9\-_\.]{6,20}" #nombreUsuario="ngModel" [(ngModel)]="user.nombreUsuario">

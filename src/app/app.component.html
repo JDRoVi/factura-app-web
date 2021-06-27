@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <h3 class="navbar-brand">Sistema de facturacion</h3>
+    <h5 class="navbar-brand">Sistema de facturacion</h5>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,61 +14,32 @@
         <li class="nav-item active">
           <a id="navHome" class="nav-link" [routerLink]="['']">Inicio</a>
         </li>
-
-        <li class="nav-item active">
-          <a id="navlogin" class="nav-link" [routerLink]="['/login']">Inicio</a>
-        </li>
-
         <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Compra de productos<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/compra-productos']"></a>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Historial de compras<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/factura-compra']"></a>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Sistema de ventas<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/checkout']"></a>
-            </div>
-          </div>
-        </li>
-      
-        <li class="nav-item">
-          <div class="subnav">
-            <button class="subnavbtn">Facturas<i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-              <a [routerLink]="['/login']"></a>
-            </div>
-          </div>
+          <a class="nav-link" [routerLink]="['/compra-productos']">compra</a>
         </li>
 
       </ul>
-
+      <ul class="navbar-nav navbar-right" *ngIf="!identity">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
       <ul class="navbar-nav navbar-right" *ngIf="identity">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/registrar-usuario']">Registro</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
+            {{identity.nombreUsuario}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" [routerLink]="['/lista-clientes']">Lista de cliente</a>
+            <a class="dropdown-item" [routerLink]="['/registrar-cliente']">Agregar cliente</a>
             <a class="dropdown-item" [routerLink]="['/registrar-empleado']">Agregar empleado</a>
             <a class="dropdown-item" [routerLink]="['/registrar-proveedor']">Agregar proveedor</a>
             <a class="dropdown-item" [routerLink]="['/registrar-usuario']">Agregar usuario</a>
+            <a class="dropdown-item" *ngIf="identity &&identity.nivelUsuario=='10'">Configuración</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" *ngIf="identity && identity.role=='10'">Configuración</a>
             <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar sesión</a>
           </div>
         </li>
@@ -83,6 +54,6 @@
 
 </div>
 
-<footer>
+<footer class="navbar navbar-fixed-bottom">
   <p class="text-center mt-4">&copy; Todos los derechos reservados. App Web de Daniel Rodriguez y Michael Yubank</p>
 </footer>
