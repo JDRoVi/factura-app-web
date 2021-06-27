@@ -10,10 +10,10 @@ import { Cliente } from '../models/cliente';
         this.url = global.urlApi;
     }
     register(client: Cliente): Observable<any> {
-        let data = JSON.stringify(client);
-        let params = 'json=' + data;
-        let httpHeaders = new HttpHeaders().set('Content-Type', 'aplication/x-www-from-urlencoded');
-        return this._http.post(this.url + 'client', params, { headers: httpHeaders });
+        let data=JSON.stringify(client);
+    let params='json='+data;
+    let httpHeaders=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    return this._http.post(this.url+'client',params,{headers:httpHeaders});
     }
     getClients(): Observable<any> {
         let httpHeader = new HttpHeaders().append('Content-Type', 'aplication/x-www-from-urlencoded');

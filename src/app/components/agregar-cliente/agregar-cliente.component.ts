@@ -14,7 +14,7 @@ export class AgregarClienteComponent implements OnInit {
   public status: number;
 
   constructor(private _clienteService: ClienteService) {
-    this.client = new Cliente(1, "", "", "", "");
+    this.client = new Cliente(1, "", "", 1, "");
     this.status = -1;
   }
 

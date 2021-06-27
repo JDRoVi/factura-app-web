@@ -20,7 +20,7 @@ export class EditarClienteComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.url = global.urlApi;
-    this.client = new Cliente(1, "", "", "", "");
+    this.client = new Cliente(1, "", "", 1, "");
   }
 
   ngOnInit(): void {

@@ -3,7 +3,7 @@ export class Cliente {
         public id: number,
         public nombre: string,
         public direccion: string,
-        public telefono: string,
+        public telefono: number,
         public correo: string
     ) { }
 }
